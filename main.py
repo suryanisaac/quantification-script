@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 
 
 # Path to FIJI-Processed Image
-image_path = "/Users/suryanisaac/Downloads/G3NN.tif"
+image_path = "./sample.tif"
 
 # Make True if last peak doesn't have a vertical line at the end. False if line is already present
 AddFinalLimit = True
@@ -25,7 +25,7 @@ sensitivity = 0.8
 
 # Enter concentrations for the standards to automatically try a linear fit
 # Disregard if non-linear fit is performed elsewhere
-standards = [6,4,2,1,0.5,0.1]
+standards = [6, 4, 2, 1, 0.5, 0.1]
 
 # Figure plotting styles (matplotlib.pyplot)
 plt.style.use('default')
@@ -137,6 +137,8 @@ def extrapolate_from_model(linearmodel, y_value):
 
 result = extrapolate_from_model(linear_model, integrals)
 np.set_printoptions(precision=3)
+print("List of Peak Integrals: ")
 print(np.array(integrals))
+print("Linear Regression Quantification Results: ")
 print(result)
 plt.show()
